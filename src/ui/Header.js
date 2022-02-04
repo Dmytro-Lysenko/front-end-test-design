@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { Context } from "../store/context";
 import { Link } from "react-router-dom";
 import classes from "./Header.module.css";
 import BrandIcon from "../images/Brand_icon.png";
@@ -7,8 +8,11 @@ import EmptyCart from "../images/Empty_Cart.png";
 import VectorUp from "../images/Vector-Up.png";
 
 const Header = () => {
+  const ctx = useContext(Context);
   const [isShown, setIsShown] = useState(false);
-  const [currency, setCurrency] = useState("$");
+  // const [currency, setCurrency] = useState(ctx.currency);
+
+  console.log(ctx.currency);
   const showHandler = () => {
     setIsShown(!isShown);
   };
@@ -28,7 +32,7 @@ const Header = () => {
             alt="brand icon"
           />
           <div className={classes.actions}>
-            <h1>{currency}</h1>
+            <h1>{ctx.currency}</h1>
             <img
               onClick={showHandler}
               className={classes["vector-down"]}
@@ -39,7 +43,7 @@ const Header = () => {
               <div className={classes.switcher}>
                 <h1
                   onClick={() => {
-                    setCurrency("$");
+                    ctx.changeCurrency("$");
                     setIsShown(!isShown);
                   }}
                 >
@@ -47,7 +51,7 @@ const Header = () => {
                 </h1>
                 <h1
                   onClick={() => {
-                    setCurrency("€");
+                    ctx.changeCurrency("€");
                     setIsShown(!isShown);
                   }}
                 >
@@ -55,7 +59,7 @@ const Header = () => {
                 </h1>
                 <h1
                   onClick={() => {
-                    setCurrency("¥");
+                    ctx.changeCurrency("¥");
                     setIsShown(!isShown);
                   }}
                 >
