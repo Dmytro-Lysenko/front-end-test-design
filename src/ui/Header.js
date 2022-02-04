@@ -1,29 +1,59 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/context";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import classes from "./Header.module.css";
 import BrandIcon from "../images/Brand_icon.png";
 import VectorDown from "../images/Vector-Down.png";
 import EmptyCart from "../images/Empty_Cart.png";
 import VectorUp from "../images/Vector-Up.png";
+const links = {
+  links: [
+    { name: "WOMAN", id: "w1", style: classes.link, isActive: false },
+    { name: "MAN", id: "w2", style: classes.link, isActive: false },
+    { name: "KIDS", id: "w3", style: classes.link, isActive: false },
+  ],
+  activeLink: null,
+};
 
 const Header = () => {
   const ctx = useContext(Context);
   const [isShown, setIsShown] = useState(false);
   // const [currency, setCurrency] = useState(ctx.currency);
+  const [isActive, setisActive] = useState(false);
+  const [updLinks, setUpdLinks] = useState(links.links);
+  const [activeLink, setActiveLink] = useState(null);
+
+  const activeStyle = `${isActive ? classes.active : ""}`;
 
   console.log(ctx.currency);
   const showHandler = () => {
     setIsShown(!isShown);
   };
 
+  const toogleActiveHandler = (id) => {
+    // const objIndex = updLinks.findIndex((link) => link.id === id);
+    // updLinks[objIndex].style = classes.active;
+    // console.log(objIndex);
+    // const y = [...updLinks];
+    // setUpdLinks(y);
+    setActiveLink(id);
+    console.log(id);
+    console.log(activeLink);
+  };
+
   return (
     <header className={classes.header}>
       <nav>
         <ul>
-          <li>WOMAN</li>
-          <li>MAN</li>
-          <li>KIDS</li>
+          {updLinks.map((link) => (
+            <li
+              onClick={() => toogleActiveHandler(link.id)}
+              key={link.id}
+              className={link.id === activeLink ? classes.active : classes.link}
+            >
+              {link.name}
+            </li>
+          ))}
         </ul>
         <div>
           <img

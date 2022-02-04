@@ -1,16 +1,13 @@
-import Main from "./components/Main";
-import ContextProvider from "./store/context";
-import Header from "./ui/Header";
-import Layout from "./ui/Layout";
+import { Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home";
+
 
 function App() {
   return (
-    <ContextProvider>
-      <Layout>
-        <Header />
-        <Main />
-      </Layout>
-    </ContextProvider>
+    <Routes>
+      <Route exact path="/" element={<Home />}></Route>
+    </Routes>
   );
 }
 
