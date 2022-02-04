@@ -4,9 +4,11 @@ import classes from "./Header.module.css";
 import BrandIcon from "../images/Brand_icon.png";
 import VectorDown from "../images/Vector-Down.png";
 import EmptyCart from "../images/Empty_Cart.png";
+import VectorUp from "../images/Vector-Up.png";
 
 const Header = () => {
   const [isShown, setIsShown] = useState(false);
+  const [currency, setCurrency] = useState("$");
   const showHandler = () => {
     setIsShown(!isShown);
   };
@@ -26,18 +28,39 @@ const Header = () => {
             alt="brand icon"
           />
           <div className={classes.actions}>
-            <h1>$</h1>
+            <h1>{currency}</h1>
             <img
               onClick={showHandler}
               className={classes["vector-down"]}
-              src={VectorDown}
+              src={isShown ? VectorUp : VectorDown}
               alt="vector down"
             />
             {isShown ? (
               <div className={classes.switcher}>
-                <h1>$ USD</h1>
-                <h1>€ EUR</h1>
-                <h1>¥ JPY</h1>
+                <h1
+                  onClick={() => {
+                    setCurrency("$");
+                    setIsShown(!isShown);
+                  }}
+                >
+                  $ USD
+                </h1>
+                <h1
+                  onClick={() => {
+                    setCurrency("€");
+                    setIsShown(!isShown);
+                  }}
+                >
+                  € EUR
+                </h1>
+                <h1
+                  onClick={() => {
+                    setCurrency("¥");
+                    setIsShown(!isShown);
+                  }}
+                >
+                  ¥ JPY
+                </h1>
               </div>
             ) : (
               ""
