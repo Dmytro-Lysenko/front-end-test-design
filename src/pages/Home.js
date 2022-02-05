@@ -4,11 +4,12 @@ import Main from '../components/Main';
 import Header from '../ui/Header';
 import Layout from '../ui/Layout';
 
-const Home = () => {
+const Home = ({products}) => {
+  console.log(products);
   return  <ContextProvider>
   <Layout>
     <Header />
-    <Main />
+    <Main products={products} />
   </Layout>
 </ContextProvider>;
 };

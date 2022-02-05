@@ -12,31 +12,55 @@ const DUMMY_DATA = [
   {
     id: "m1",
     image: ManSweater1,
+    smallImage: [ManSweater1, ManSweater2, ManSweater3],
+    sizes: [
+      { id: "n1", size: "XS" },
+      { id: "n2", size: "S" },
+      { id: "n3", size: "M" },
+      { id: "n4", size: "L" },
+    ],
     price: 52,
     category: "man",
     brand: "Brioni",
     type: "sweater1",
     isOnStock: true,
+    description: `Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.`,
   },
 
   {
     id: "m2",
     image: ManSweater2,
+    smallImage: [ManSweater1, ManSweater2, ManSweater3],
+    sizes: [
+      { id: "n1", size: "XS" },
+      { id: "n2", size: "S" },
+      { id: "n3", size: "M" },
+      { id: "n4", size: "L" },
+    ],
     price: 32,
     category: "man",
     brand: "Brioni",
     type: "sweater2",
     isOnStock: true,
+    description: `Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.`,
   },
 
   {
     id: "m3",
     image: ManSweater3,
+    smallImage: [ManSweater1, ManSweater2, ManSweater3],
+    sizes: [
+      { id: "n1", size: "XS" },
+      { id: "n2", size: "S" },
+      { id: "n3", size: "M" },
+      { id: "n4", size: "L" },
+    ],
     price: 65,
     category: "man",
     brand: "Brioni",
     type: "sweater3",
     isOnStock: true,
+    description: `Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.`,
   },
 
   {

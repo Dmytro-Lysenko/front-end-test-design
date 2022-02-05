@@ -25,7 +25,6 @@ const Header = () => {
 
   const activeStyle = `${isActive ? classes.active : ""}`;
 
-  console.log(ctx.currency);
   const showHandler = () => {
     setIsShown(!isShown);
   };
@@ -37,8 +36,6 @@ const Header = () => {
     // const y = [...updLinks];
     // setUpdLinks(y);
     setActiveLink(id);
-    console.log(id);
-    console.log(activeLink);
   };
 
   return (
