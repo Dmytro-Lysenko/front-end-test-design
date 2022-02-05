@@ -8,10 +8,20 @@ const CardItem = (props) => {
 
   const cursePrice = (props.price * ctx.course).toFixed(0);
   const { id, type, img, isOnStock, price } = props;
+
+  const styles = `${classes["out-of-stock"]} + ${
+    isOnStock ? "" : classes["display-unset"]
+  }`;
+
   return (
     <div className={classes.card}>
       <div className={classes.container}>
-        <img src={img} alt={type} />
+        <h1 className={styles}>OUT OF STOCK</h1>
+        <img
+          className={isOnStock ? "" : classes["image-overlay"]}
+          src={img}
+          alt={type}
+        />
       </div>
       <h1>{type}</h1>
       <h1>

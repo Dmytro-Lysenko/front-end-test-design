@@ -46,7 +46,7 @@ const DUMMY_DATA = [
     category: "woman",
     brand: "H&M",
     type: "pigama1",
-    isOnStock: true,
+    isOnStock: false,
   },
   {
     id: "j2",

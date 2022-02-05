@@ -10,14 +10,43 @@
 .container {
   width: 354px;
   height: 330px;
+  position: relative;
 }
+
+.out-of-stock {
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  width: 173px;
+  height: 39px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 160%;
+  color: #8d8f9a;
+  display: none;
+}
+
 .container img {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-.card h1 {
+.display-unset {
+  display: unset;
+}
+
+.image-overlay {
+  background: #ffffff;
+  opacity: 0.5;
+}
+
+.card > h1 {
   width: 354px;
   padding: 24px 0 0 0;
   margin: 0;
