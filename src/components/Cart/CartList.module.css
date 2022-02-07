@@ -123,12 +123,15 @@
   max-height: 185px;
   width: 100%;
   height: 100%;
+  overflow: hidden;
+  background-color: black;
 }
 
 .productImage {
   display: block;
   width: 100%;
   height: 100%;
+  opacity: 0.8;
 }
 
 .arrowLeft {
@@ -138,11 +141,13 @@
   left: 9px;
   width: 10px;
   height: 15px;
+  z-index: 1;
   /* border: 2px solid #ffffff; */
   transform: matrix(-1, 0, 0, 1, 0, 0);
 }
 
 .arrowRight {
+  z-index: 1;
   cursor: pointer;
   position: absolute;
   top: 87px;
@@ -152,6 +157,7 @@
   /* border: 2px solid #ffffff; */
   transform: matrix(-1, 0, 0, 1, 0, 0);
 }
+
 .arrowRight:hover,
 .arrowLeft:hover {
   background-color: #a5a0a0;

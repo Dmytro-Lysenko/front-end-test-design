@@ -8,30 +8,40 @@ const CartItem = (props) => {
   const ctx = useContext(Context);
   const { brand, id, image, sizes, smallImage, category, price, chosenSizes } =
     props;
-  const [counter, setCounter] = useState(1);
+  const [counter, setCounter] = useState(2);
   const [pcs, setPcs] = useState(1);
   const [activeImage, setActiveImage] = useState(smallImage[counter]);
 
-  console.log(counter);
-  console.log(smallImage.length);
+  console.log("counter", counter);
+  console.log("array images", smallImage.length);
   const changeImageToLeftHandler = () => {
-    if (counter === 0) {
-      setCounter(smallImage.length - 1);
+    if (counter < 0) {
+      return;
     }
-    setCounter((prevCounter) => {
-      return (prevCounter = prevCounter - 1);
-    });
+    if (counter === 0) {
+      setCounter((prev) => {
+        return (prev = smallImage.length - 1);
+      });
+    } else {
+      setCounter((prevCounter) => {
+        return (prevCounter -= 1);
+      });
+    }
+
     setActiveImage(smallImage[counter]);
   };
 
   const changeImageToRightHandler = () => {
     if (counter === smallImage.length - 1) {
-      setCounter(0);
+      setCounter((prev) => {
+        return (prev = 0);
+      });
+      //   return;
+    } else {
+      setCounter((prevCounter) => {
+        return (prevCounter += 1);
+      });
     }
-    console.log("click");
-    setCounter((prevCounter) => {
-      return (prevCounter = prevCounter + 1);
-    });
     setActiveImage(smallImage[counter]);
   };
 
@@ -44,6 +54,7 @@ const CartItem = (props) => {
   };
   const decreasePcsHandler = () => {
     if (pcs === 1) {
+      alert("are you want to remove item");
       return;
     }
     setPcs((prev) => {
