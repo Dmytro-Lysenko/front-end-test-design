@@ -12,8 +12,7 @@ const CartItem = (props) => {
   const [pcs, setPcs] = useState(1);
   const [activeImage, setActiveImage] = useState(smallImage[counter]);
 
-  console.log("counter", counter);
-  console.log("array images", smallImage.length);
+
   const changeImageToLeftHandler = () => {
     if (counter < 0) {
       return;

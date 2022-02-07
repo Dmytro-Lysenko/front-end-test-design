@@ -6,6 +6,8 @@ import BrandIcon from "../images/Brand_icon.png";
 import VectorDown from "../images/Vector-Down.png";
 import EmptyCart from "../images/Empty_Cart.png";
 import VectorUp from "../images/Vector-Up.png";
+
+import CartOverlayModal from "./CartOverlayModal";
 const links = {
   links: [
     { name: "WOMAN", id: "w1", style: classes.link, isActive: false },
@@ -23,6 +25,7 @@ const Header = () => {
   const [isActive, setisActive] = useState(false);
   const [updLinks, setUpdLinks] = useState(links.links);
   const [activeLink, setActiveLink] = useState(null);
+  const [isOverlayActive, setIsOverlayActive] = useState(false);
 
   const activeStyle = `${isActive ? classes.active : ""}`;
 
@@ -41,6 +44,16 @@ const Header = () => {
     // const y = [...updLinks];
     // setUpdLinks(y);
     setActiveLink(id);
+  };
+
+  const overlayHandler = () => {
+    console.log("click");
+    setIsOverlayActive(true);
+  };
+
+  const closeModalHandler = () => {
+    console.log("click");
+    setIsOverlayActive(false);
   };
 
   return (
@@ -106,10 +119,16 @@ const Header = () => {
             )}
             <img
               onClick={navigateHandler}
+              onMouseOver={overlayHandler}
               className={classes["empty-cart"]}
               src={EmptyCart}
               alt="empty down"
             />
+            {isOverlayActive ? (
+              <CartOverlayModal onClose={closeModalHandler} />
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </nav>
