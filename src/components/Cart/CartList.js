@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Context } from "../../store/context";
 import classes from "./CartList.module.css";
 import ManSweater1 from "../../images/Man-Sweater1.jpeg";
 import ManSweater2 from "../../images/Man-Sweater2.jpeg";
 import ManSweater3 from "../../images/Man-Sweater3.jpeg";
-import RightArrow from "../../images/LeftArrow.png";
-import LeftArrow from "../../images/RightArrow.png";
+
+import CartItem from "./CartItem";
 
 const DD = [
   {
@@ -57,54 +57,28 @@ const DD = [
 ];
 
 const CartList = (props) => {
+  const [activeImage, setActiveImage] = useState();
   const ctx = useContext(Context);
   console.log(ctx.productsInCart);
   // if (!ctx.productsInCart.length) {
   //   return <h1>There are no items in cart</h1>;
   // }
+ 
+
   return (
     <div>
       {DD.map((product, index) => (
-        <div key={index} className={classes["cart-product"]}>
-          <div className={classes["cart-product__container"]}>
-            <div className={classes["cart-product__container__left"]}>
-              <h1>Apollo</h1>
-              <p>Run something</p>
-              <h2>$50.00</h2>
-              <ul className={classes["sizes-container"]}>
-                {product.chosenSizes.map((size, index) => (
-                  <li key={index}>{size.size}</li>
-                ))}
-              </ul>
-            </div>
-            <div className={classes["cart-product__container__right"]}>
-              <div
-                className={classes["cart-product__container__right__actions"]}
-              >
-                <button>+</button>
-                <h1 className={classes.pcs}>1</h1>
-                <button>-</button>
-              </div>
-              <div className={classes["cart-product__container__right__image"]}>
-                <img
-                  className={classes.arrowLeft}
-                  src={LeftArrow}
-                  alt="left arrow"
-                />
-                <img
-                  className={classes.productImage}
-                  src={product.image}
-                  alt={product.type}
-                />
-                <img
-                  className={classes.arrowRight}
-                  src={RightArrow}
-                  alt="right arrow"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+        <CartItem
+          key={index}
+          id={product.id}
+          brand={product.brand}
+          image={product.image}
+          smallImage={product.smallImage}
+          category={product.category}
+          price={product.price}
+          sizes={product.sizes}
+          chosenSizes={product.chosenSizes}
+        />
       ))}
     </div>
   );
