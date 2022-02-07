@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/context";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import classes from "./Header.module.css";
 import BrandIcon from "../images/Brand_icon.png";
 import VectorDown from "../images/Vector-Down.png";
@@ -16,6 +16,7 @@ const links = {
 };
 
 const Header = () => {
+  const navigate = useNavigate();
   const ctx = useContext(Context);
   const [isShown, setIsShown] = useState(false);
   // const [currency, setCurrency] = useState(ctx.currency);
@@ -27,6 +28,10 @@ const Header = () => {
 
   const showHandler = () => {
     setIsShown(!isShown);
+  };
+
+  const navigateHandler = () => {
+    navigate("/cart", true);
   };
 
   const toogleActiveHandler = (id) => {
@@ -46,9 +51,12 @@ const Header = () => {
             <li
               onClick={() => toogleActiveHandler(link.id)}
               key={link.id}
-              className={link.id === activeLink ? classes.active : classes.link}
+              className={`${link.style} ${
+                link.id === activeLink ? classes["link__active"] : " "
+              }`}
+              // className={link.id === activeLink ? classes.active : classes.link}
             >
-              {link.name}
+              <Link to="/"> {link.name}</Link>
             </li>
           ))}
         </ul>
@@ -97,6 +105,7 @@ const Header = () => {
               ""
             )}
             <img
+              onClick={navigateHandler}
               className={classes["empty-cart"]}
               src={EmptyCart}
               alt="empty down"

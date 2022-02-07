@@ -1,0 +1,144 @@
+.cart-product {
+  border-top: 1px solid #e5e5e5;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto 20px auto;
+}
+
+.cart-product__container {
+  display: flex;
+  justify-content: space-between;
+  background-color: chocolate;
+  margin-top: 20px;
+  max-width: 1100px;
+  width: 100%;
+}
+
+.cart-product__container__left {
+  max-width: 320px;
+  width: 100%;
+}
+
+.cart-product__container__left h1 {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  align-items: center;
+  color: #1d1f22;
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+.cart-product__container__left h2 {
+  width: 86px;
+  height: 46px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 18px;
+  color: #1d1f22;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  padding-bottom: 11px;
+}
+
+.cart-product__container__left p {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 27px;
+  color: #1d1f22;
+  margin: 0;
+  padding-bottom: 12px;
+}
+
+.cart-product__container__right {
+  display: flex;
+  justify-content: space-between;
+  max-width: 198px;
+  width: 100%;
+}
+
+.sizes-container {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  max-width: 320px;
+  width: 100%;
+}
+
+.sizes-container li {
+  list-style: none;
+  max-width: 63px;
+  width: 100%;
+  height: 45px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-product__container__right__actions {
+}
+
+.cart-product__container__right__actions button {
+  font-size: 2rem;
+  width: 45px;
+  height: 45px;
+  border: 1px solid #1d1f22;
+  box-sizing: border-box;
+  background-color: #ffffff;
+}
+
+.pcs {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 160%;
+  text-align: center;
+  color: #1d1f22;
+  padding: 27px 0;
+  margin: 0;
+}
+
+.cart-product__container__right__image {
+  position: relative;
+  max-width: 141px;
+  max-height: 185px;
+  width: 100%;
+  height: 100%;
+}
+
+.productImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.arrowLeft {
+  cursor: pointer;
+  position: absolute;
+  top: 87px;
+  left: 9px;
+  width: 6px;
+  height: 12px;
+  order: 2px solid #ffffff;
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+.arrowRight {
+  cursor: pointer;
+  position: absolute;
+  top: 87px;
+  right: 9px;
+  width: 6px;
+  height: 12px;
+  order: 2px solid #ffffff;
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+}

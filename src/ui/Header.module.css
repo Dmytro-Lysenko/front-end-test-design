@@ -29,24 +29,36 @@
   margin: 0;
 }
 
-.active {
-  cursor: pointer;
-  list-style: none;
-  font-family: Raleway;
-  font-size: 16px;
-  line-height: 19.2px;
-  padding: 28px 32px 32px 32px;
+.link__active {
   color: #5ece7b;
   border-bottom: 2px solid #5ece7b;
 }
 
+.link__active a {
+  color: #5ece7b !important;
+  text-decoration: none;
+}
+
+/* .link {
+  list-style: none;
+} */
+
 .link {
+  text-decoration: none;
   cursor: pointer;
   list-style: none;
   font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
   font-size: 16px;
-  line-height: 19.2px;
+  line-height: 120%;
   padding: 28px 32px 32px 32px;
+  color: #1d1f22;
+}
+
+.link a {
+  color: #1d1f22;
+  text-decoration: none;
 }
 
 .actions {
