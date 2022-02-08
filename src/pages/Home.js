@@ -5,7 +5,6 @@ import Header from "../ui/Header";
 import Layout from "../ui/Layout";
 
 const Home = ({ products }) => {
-
   return (
     <ContextProvider>
       <Layout>

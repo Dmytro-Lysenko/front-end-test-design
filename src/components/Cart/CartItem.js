@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import classes from "./CartList.module.css";
+import classes from "./CartItem.module.css";
 import RightArrow from "../../images/LeftArrow.png";
 import LeftArrow from "../../images/RightArrow.png";
 import { Context } from "../../store/context";
@@ -8,10 +8,10 @@ const CartItem = (props) => {
   const ctx = useContext(Context);
   const { brand, id, image, sizes, smallImage, category, price, chosenSizes } =
     props;
+
   const [counter, setCounter] = useState(2);
   const [pcs, setPcs] = useState(1);
   const [activeImage, setActiveImage] = useState(smallImage[counter]);
-
 
   const changeImageToLeftHandler = () => {
     if (counter < 0) {

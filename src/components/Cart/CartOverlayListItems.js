@@ -4,7 +4,9 @@ import ManSweater1 from "../../images/Man-Sweater1.jpeg";
 import ManSweater2 from "../../images/Man-Sweater2.jpeg";
 import ManSweater3 from "../../images/Man-Sweater3.jpeg";
 
-import CartItem from "./CartItem";
+import CartOverlayItem from "./CartOverlayItem";
+import classes from "./CartOverlayListItems.module.css";
+import { useNavigate } from "react-router-dom";
 
 const DD = [
   {
@@ -55,10 +57,22 @@ const DD = [
   },
 ];
 
-const CartList = (props) => {
+const CartOverlayListItems = (props) => {
   const [activeImage, setActiveImage] = useState();
+  const navigate = useNavigate();
   const ctx = useContext(Context);
-  console.log(ctx.productsInCart);
+
+  const prices = ctx.productsInCart.map((product) => product.price);
+  const totalPrice = prices.reduce((a, b) => a + b, 0);
+  const itemsInCart = ctx.productsInCart.length;
+  console.log(itemsInCart);
+
+  const toogleToCartHandler = () => {
+    console.log("click in item");
+    navigate("/cart", { replace: false });
+    props.onClose();
+  };
+
   // if (!ctx.productsInCart.length) {
   //   return <h1>There are no items in cart</h1>;
   // }
@@ -66,7 +80,7 @@ const CartList = (props) => {
   return (
     <div>
       {ctx.productsInCart.map((product, index) => (
-        <CartItem
+        <CartOverlayItem
           key={index}
           id={product.id}
           brand={product.brand}
@@ -78,8 +92,24 @@ const CartList = (props) => {
           chosenSizes={product.chosenSizes}
         />
       ))}
+      <div className={classes["total-container"]}>
+        <div className={classes["price-container"]}>
+          <h1>Total</h1>
+          <span>
+            {ctx.currency} {totalPrice}
+          </span>
+        </div>
+        {itemsInCart === 0 ? (
+          ""
+        ) : (
+          <div className={classes["actions-container"]}>
+            <button onClick={toogleToCartHandler}>View bag</button>
+            <button>CHECK OUT</button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
 
-export default CartList;
+export default CartOverlayListItems;

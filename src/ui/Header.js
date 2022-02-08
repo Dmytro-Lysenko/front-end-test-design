@@ -28,6 +28,7 @@ const Header = () => {
   const [isOverlayActive, setIsOverlayActive] = useState(false);
 
   const activeStyle = `${isActive ? classes.active : ""}`;
+  const itemsInCart = ctx.productsInCart.length;
 
   const showHandler = () => {
     setIsShown(!isShown);
@@ -59,7 +60,7 @@ const Header = () => {
   return (
     <header className={classes.header}>
       <nav>
-        <ul>
+        <ul className={classes.navLinks}>
           {updLinks.map((link) => (
             <li
               onClick={() => toogleActiveHandler(link.id)}
@@ -80,7 +81,7 @@ const Header = () => {
             alt="brand icon"
           />
           <div className={classes.actions}>
-            <h1>{ctx.currency}</h1>
+            <h1 className={classes.currency}>{ctx.currency}</h1>
             <img
               onClick={showHandler}
               className={classes["vector-down"]}
@@ -90,6 +91,7 @@ const Header = () => {
             {isShown ? (
               <div className={classes.switcher}>
                 <h1
+                  className={classes.currency}
                   onClick={() => {
                     ctx.changeCurrency("$");
                     setIsShown(!isShown);
@@ -98,6 +100,7 @@ const Header = () => {
                   $ USD
                 </h1>
                 <h1
+                  className={classes.currency}
                   onClick={() => {
                     ctx.changeCurrency("€");
                     setIsShown(!isShown);
@@ -106,6 +109,7 @@ const Header = () => {
                   € EUR
                 </h1>
                 <h1
+                  className={classes.currency}
                   onClick={() => {
                     ctx.changeCurrency("¥");
                     setIsShown(!isShown);
@@ -129,6 +133,7 @@ const Header = () => {
             ) : (
               ""
             )}
+            <h2 className={classes.itemsInCart}>{itemsInCart}</h2>
           </div>
         </div>
       </nav>
