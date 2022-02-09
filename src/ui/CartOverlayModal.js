@@ -10,13 +10,18 @@ const CartOverlayModal = (props) => {
 
   return (
     <>
-      <div className={classes.backdrop} onClick={() => props.onClose()}></div>
+      <div
+        className={classes.backdrop}
+        onMouseMove={() => props.onClose()}
+      ></div>
       <div className={classes.CartContainer}>
         <h1 className={classes.myBag}>
           My bag, <span className={classes.items}>{itemsInCart} items</span>
         </h1>
         {itemsInCart === 0 ? (
-          <h1 className={classes.noItems} >There are no items in cart, please add some!</h1>
+          <h1 className={classes.noItems}>
+            There are no items in cart, please add some!
+          </h1>
         ) : (
           " "
         )}

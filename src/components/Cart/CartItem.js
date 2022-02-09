@@ -3,9 +3,11 @@ import classes from "./CartItem.module.css";
 import RightArrow from "../../images/LeftArrow.png";
 import LeftArrow from "../../images/RightArrow.png";
 import { Context } from "../../store/context";
+import DeleteProductFromCartModal from "../../ui/DeleteProductFromCartModal";
 
 const CartItem = (props) => {
   const ctx = useContext(Context);
+  const [deleteModal, setDeleteModal] = useState(false);
   const { brand, id, image, sizes, smallImage, category, price, chosenSizes } =
     props;
 
@@ -53,7 +55,8 @@ const CartItem = (props) => {
   };
   const decreasePcsHandler = () => {
     if (pcs === 1) {
-      alert("are you want to remove item");
+      setDeleteModal(true);
+      // alert("are you want to remove item");
       return;
     }
     setPcs((prev) => {
@@ -63,6 +66,13 @@ const CartItem = (props) => {
   return (
     <>
       <div className={classes["cart-product"]}>
+        {deleteModal ? (
+          <DeleteProductFromCartModal>
+            Are you sure you want to delete product?
+          </DeleteProductFromCartModal>
+        ) : (
+          ""
+        )}
         <div className={classes["cart-product__container"]}>
           <div className={classes["cart-product__container__left"]}>
             <h1>Apollo</h1>

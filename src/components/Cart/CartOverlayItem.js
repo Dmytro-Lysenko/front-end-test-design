@@ -3,9 +3,11 @@ import classes from "./CardOverlayItem.module.css";
 import RightArrow from "../../images/LeftArrow.png";
 import LeftArrow from "../../images/RightArrow.png";
 import { Context } from "../../store/context";
+import DeleteProductFromCartModal from "../../ui/DeleteProductFromCartModal";
 
 const CardOverlayItem = (props) => {
   const ctx = useContext(Context);
+  const [deleteModal, setDeleteModal] = useState(false);
   const { brand, id, image, sizes, smallImage, category, price, chosenSizes } =
     props;
 
@@ -28,6 +30,15 @@ const CardOverlayItem = (props) => {
     }
 
     setActiveImage(smallImage[counter]);
+  };
+
+  const closeDeleteModalHandler = () => {
+    setDeleteModal(false);
+  };
+
+  const deleteProductHandler = () => {
+    console.log("click");
+    ctx.deleteFromCart(id);
   };
 
   const changeImageToRightHandler = () => {
@@ -53,8 +64,8 @@ const CardOverlayItem = (props) => {
   };
   const decreasePcsHandler = () => {
     if (pcs === 1) {
-      alert("are you want to remove item");
-      return;
+      setDeleteModal(true);
+      // return;
     }
     setPcs((prev) => {
       return (prev -= 1);
@@ -63,6 +74,16 @@ const CardOverlayItem = (props) => {
   return (
     <>
       <div className={classes["cart-product__container"]}>
+        {deleteModal ? (
+          <DeleteProductFromCartModal
+            onDelete={deleteProductHandler}
+            onClose={closeDeleteModalHandler}
+          >
+            Are you sure you want to delete item?
+          </DeleteProductFromCartModal>
+        ) : (
+          ""
+        )}
         <div className={classes["cart-product__container__left"]}>
           <h1>Apollo</h1>
           <p>Run something</p>
