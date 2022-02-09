@@ -9,11 +9,15 @@ import ProductDetail from "./pages/ProductDetail";
 import ContextProvider from "./store/context";
 import Cart from "./pages/Cart";
 
+const t = () => {
+  console.log("ssad");
+};
+
 function App() {
   return (
     <ContextProvider>
       <Layout>
-        <Header />
+        <Header onFilter={t} />
         <Routes>
           <Route
             exact

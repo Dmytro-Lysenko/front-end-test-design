@@ -56,7 +56,7 @@ const DUMMY_DATA = [
       { id: "g4", size: "L", psc: 6 },
     ],
     price: 65,
-    category: "man",
+    category: "kids",
     brand: "Brioni",
     type: "sweater3",
     isOnStock: true,

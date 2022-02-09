@@ -7,6 +7,7 @@ import VectorDown from "../images/Vector-Down.png";
 import EmptyCart from "../images/Empty_Cart.png";
 import VectorUp from "../images/Vector-Up.png";
 
+import DUMMY_DATA from "../data";
 import CartOverlayModal from "./CartOverlayModal";
 const links = {
   links: [
@@ -17,11 +18,13 @@ const links = {
   activeLink: null,
 };
 
-const Header = () => {
+const Header = (props) => {
   const navigate = useNavigate();
   const ctx = useContext(Context);
   const [isShown, setIsShown] = useState(false);
   // const [currency, setCurrency] = useState(ctx.currency);
+  const [allProducts, setAllProducts] = useState(ctx.allProducts);
+
   const [isActive, setisActive] = useState(false);
   const [updLinks, setUpdLinks] = useState(links.links);
   const [activeLink, setActiveLink] = useState(null);
@@ -38,12 +41,23 @@ const Header = () => {
     navigate("/cart", true);
   };
 
-  const toogleActiveHandler = (id) => {
+  const toogleActiveHandler = (id, name) => {
+    const category = name.toLowerCase();
+    const [...products] = ctx.allProducts;
+    const filtredProducts = products.filter(
+      (product) => product.category === category
+    );
+    setAllProducts((prev) => {
+      return (prev = filtredProducts);
+    });
+    console.log(filtredProducts);
+    ctx.filterByCategory(category);
     // const objIndex = updLinks.findIndex((link) => link.id === id);
     // updLinks[objIndex].style = classes.active;
     // console.log(objIndex);
     // const y = [...updLinks];
     // setUpdLinks(y);
+
     setActiveLink(id);
   };
 
@@ -63,7 +77,8 @@ const Header = () => {
         <ul className={classes.navLinks}>
           {updLinks.map((link) => (
             <li
-              onClick={() => toogleActiveHandler(link.id)}
+              onClick={() => toogleActiveHandler(link.id, link.name)}
+              // onClick={() => sortHandler()}
               key={link.id}
               className={`${link.style} ${
                 link.id === activeLink ? classes["link__active"] : " "
@@ -74,12 +89,12 @@ const Header = () => {
             </li>
           ))}
         </ul>
+        <img
+          className={classes["brand-icon"]}
+          src={BrandIcon}
+          alt="brand icon"
+        />
         <div>
-          <img
-            className={classes["brand-icon"]}
-            src={BrandIcon}
-            alt="brand icon"
-          />
           <div className={classes.actions}>
             <h1 className={classes.currency}>{ctx.currency}</h1>
             <img

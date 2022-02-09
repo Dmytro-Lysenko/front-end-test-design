@@ -6,6 +6,8 @@ export const Context = createContext({
   deleteFromCart: (id) => {},
   productIsInCart: (id) => {},
   allProducts: [],
+  filterBy: "",
+  filterByCategory: (category) => {},
   setAllProducts: (products) => {},
   course: 1,
   currency: "$",
@@ -29,12 +31,13 @@ const test = [
 ];
 
 const ContextProvider = (props) => {
+  const [filterBy, setFilterBy] = useState(null);
   const [currency, setCurrency] = useState("$");
-  const [allProds, setAlprods] = useState([]);
+  const [allProds, setAllprods] = useState([]);
   const [itemsInCart, setItemsInCart] = useState([]);
 
   const setAllProductsHandler = (products) => {
-    setAlprods(products);
+    setAllprods(products);
   };
 
   const changeCurrencyHandler = (curr) => {
@@ -62,6 +65,14 @@ const ContextProvider = (props) => {
     });
   };
 
+  const filterByHandler = (category) => {
+    setFilterBy(category);
+    // const [...products] = allProds;
+    // setAllprods((prevProd) => {
+    //   return (prevProd = products.filter((item) => item.category === category));
+    // });
+  };
+
   const updCourse = currency === "$" ? 1 : currency === "€" ? 1.3 : 0.7;
 
   const context = {
@@ -70,6 +81,8 @@ const ContextProvider = (props) => {
     deleteFromCart: removeFromCartHandler,
     productIsInCart: isInCartHandler,
     allProducts: allProds,
+    filterBy: filterBy,
+    filterByCategory: filterByHandler,
     setAllProducts: setAllProductsHandler,
     course: updCourse,
     currency: currency,

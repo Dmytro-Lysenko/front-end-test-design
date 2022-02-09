@@ -3,7 +3,7 @@ import CartList from "../components/Cart/CartList";
 
 const Cart = (props) => {
   return (
-    <div>
+    <div style={{ padding: "0 1rem" }}>
       <h1
         style={{
           fontFamily: "Raleway",
