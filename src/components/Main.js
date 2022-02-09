@@ -14,13 +14,14 @@ const Main = ({ products }) => {
   const filtByCategory = prods.filter(
     (product) => product.category === ctx.filterBy
   );
-  console.log(filtByCategory);
-  const filterHandler = () => {};
+
+  const mainProducts = filterBy ? filterByCategory : ctx.allProducts;
+  const category = filterBy ? filterBy.toLocaleUpperCase() : "";
 
   useEffect(() => {
     setFilterByCategory(ctx.allProducts);
     ctx.setAllProducts(products);
-  }, []);
+  }, [products]);
 
   useEffect(() => {
     setFilterByCategory(filtByCategory);
@@ -30,9 +31,9 @@ const Main = ({ products }) => {
   console.log(ctx.allProducts);
   return (
     <div className={classes.main}>
-      <h1 className={classes.title}>Category name</h1>
+      <h1 className={classes.title}>{category} CATEGORY</h1>
       <div className={classes.cardList}>
-        {filterByCategory.map((card) => (
+        {mainProducts.map((card) => (
           <CardItem
             key={card.id}
             id={card.id}

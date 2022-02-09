@@ -68,6 +68,7 @@
   justify-content: flex-end;
   align-items: center;
   padding: 0 101px 0 0;
+  position: relative;
 }
 
 .actions img {
@@ -112,8 +113,8 @@
 .itemsInCart {
   position: absolute;
   margin: 0;
-  top: 20px;
-  right: 90px;
+  top: -2px;
+  right: 91px;
   width: 20px;
   height: 20px;
   background: #1d1f22;
