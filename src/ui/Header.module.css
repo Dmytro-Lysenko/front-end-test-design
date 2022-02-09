@@ -73,6 +73,10 @@
   padding: 0 101px 0 0;
 }
 
+.actions img {
+  cursor: pointer;
+}
+
 .currency {
   cursor: pointer;
   padding: 0;
@@ -107,8 +111,6 @@
 .switcher h1:nth-child(2) {
   padding: 21px 0;
 }
-
-
 
 .itemsInCart {
   position: absolute;

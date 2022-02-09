@@ -35,6 +35,16 @@
   padding: 12px 0 35px;
 }
 
+.others {
+  max-width: 290px;
+  margin: 0 auto;
+  cursor: pointer;
+  border: 1px solid #1d1f22;
+  text-align: center;
+  background: #aebdbd;
+  border-radius: 10px;
+}
+
 .actions-container {
   width: 100%;
   display: flex;

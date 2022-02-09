@@ -79,7 +79,7 @@ const CartOverlayListItems = (props) => {
 
   return (
     <div>
-      {ctx.productsInCart.map((product, index) => (
+      {ctx.productsInCart.slice(0, 3).map((product, index) => (
         <CartOverlayItem
           key={index}
           id={product.id}
@@ -92,6 +92,13 @@ const CartOverlayListItems = (props) => {
           chosenSizes={product.chosenSizes}
         />
       ))}
+      {itemsInCart ? (
+        <p onClick={toogleToCartHandler} className={classes.others}>
+          other {ctx.productsInCart.length - 3} items in cart
+        </p>
+      ) : (
+        ""
+      )}
       <div className={classes["total-container"]}>
         <div className={classes["price-container"]}>
           <h1>Total</h1>

@@ -1,0 +1,52 @@
+.modal {
+  max-width: 30rem;
+  padding: 0.2rem;
+  background-color: darkcyan;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  transition: 1400ms;
+  /* animation: fadeOut 1000ms ease-out; */
+  border-radius: 6px;
+  margin: 0 auto;
+}
+
+.modal h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.active {
+  top: 90px;
+  transition: ease-in-out 900ms;
+  background-color: darkcyan;
+  z-index: 1;
+  position: absolute;
+}
+
+/* @keyframes fadeIn {
+  0% {
+    z-index: -1;
+  }
+  90% {
+    z-index: -1;
+  }
+  100% {
+    z-index: 1;
+  }
+}
+
+@keyframes fadeOut {
+  100% {
+    z-index: 1;
+  }
+  90% {
+    z-index: -1;
+  }
+  80% {
+    z-index: -1;
+  } */
+/* } */

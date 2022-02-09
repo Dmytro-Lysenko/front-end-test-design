@@ -133,7 +133,11 @@ const Header = () => {
             ) : (
               ""
             )}
-            <h2 className={classes.itemsInCart}>{itemsInCart}</h2>
+            {itemsInCart ? (
+              <h2 className={classes.itemsInCart}>{itemsInCart}</h2>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </nav>

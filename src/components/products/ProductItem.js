@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Context } from "../../store/context";
+import ErrorModal from "../../ui/ErrorModal";
+import AddingModal from "../../ui/AddingModal";
 import classes from "./ProductItem.module.css";
 import NoImage from "../../images/No-Picture.png";
 
@@ -9,7 +11,8 @@ const ProductItem = ({ products }) => {
 
   const [isActive, setIsActive] = useState(null);
   const [chosenSize, setChosenSize] = useState(null);
-  const [isSizeIsInCart, setIsSizeIsInCart] = useState(null);
+  const [error, setError] = useState(false);
+  const [addingModal, setAddingModal] = useState(false);
 
   const params = useParams();
 
@@ -60,6 +63,7 @@ const ProductItem = ({ products }) => {
   const addToCartHandler = () => {
     if (chosenSize === null) {
       // alert("pls chose some size!");
+      setError(true);
       return;
     }
 
@@ -71,9 +75,18 @@ const ProductItem = ({ products }) => {
     //   };
     //   ctx.addToCart(productInCart);
     // }
+    setAddingModal((prev) => {
+      return (prev = true);
+    });
 
-    
+    setTimeout(() => {
+      setAddingModal(null);
+    }, 1500);
     ctx.addToCart(productItemData, chosenSize);
+  };
+
+  const closeErrorModalHandler = () => {
+    setError(false);
   };
 
   console.log();
@@ -83,6 +96,13 @@ const ProductItem = ({ products }) => {
 
   return (
     <div>
+      {error ? (
+        <ErrorModal onClose={closeErrorModalHandler}>
+          Please choose size of product!
+        </ErrorModal>
+      ) : (
+        ""
+      )}
       <div className={classes["product-item"]}>
         <div className={classes["content-container"]}>
           <div className={classes["main__image__container"]}>
@@ -128,6 +148,9 @@ const ProductItem = ({ products }) => {
                 {ctx.currency}
                 {(price * ctx.course).toFixed(2)}
               </span>
+              <AddingModal isActive={addingModal}>
+                {productItemData.type}
+              </AddingModal>
               <button onClick={() => addToCartHandler()}>
                 <nobr>ADD TO CART</nobr>
               </button>
