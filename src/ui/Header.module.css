@@ -69,6 +69,7 @@
   align-items: center;
   padding: 0 101px 0 0;
   position: relative;
+  transition: 0.5s all ease;
 }
 
 .actions img {
@@ -91,10 +92,24 @@
   position: absolute;
   /* width: 114px;
   height: 169px; */
-  right: 68px;
-  top: 65px;
+  right: 80px;
+  top: 60px;
   background: #ffffff;
   filter: drop-shadow(0px 4px 35px rgba(168, 172, 176, 0.19));
+  border-bottom: 5px solid transparent;
+  transition: 0.5s all ease;
+}
+
+.bars {
+  font-size: 2rem;
+  display: none;
+}
+
+.switcher:hover {
+  border-bottom: 5px solid transparent;
+}
+
+.switcher__active {
 }
 
 .switcher h1 {
@@ -132,8 +147,200 @@
   justify-content: center;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 750px) {
+  .bars {
+    font-size: 2rem;
+    display: unset;
+  }
+
+  .header nav {
+    padding-top: 20px;
+  }
+
+  .actions {
+    display: none;
+  }
+
   .brand-icon {
-    left: 58%;
+    display: none;
+  }
+
+  .navLinks {
+    padding: 0;
+    flex: 3;
+    justify-content: space-around;
+  }
+
+  .link {
+    padding: 0;
+  }
+
+  .bars {
+    flex: 0.5;
+    cursor: pointer;
+  }
+  .bars:hover {
+    color: rgb(100, 97, 96);
+  }
+
+  .mobileNav {
+    background: aliceblue;
+    max-width: 70%;
+    width: 100%;
+    background-color: rgb(162, 212, 207);
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    transition: 1200ms ease-in-out;
+  }
+
+  .mobileNav__active {
+    transition: 1200ms ease-in-out;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .mobileNavLink {
+    list-style: none;
+    width: 12rem;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 120%;
+    color: #1d1f22;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+  }
+
+  .mobileNavLink svg {
+    padding-right: 1rem;
+  }
+
+  .mobileNavLink h1 {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 120%;
+    color: #1d1f22;
+    margin: 0;
+  }
+
+  .mobileNavLink:hover {
+    background-color: rgb(38, 116, 28);
+    transition: 0.5s all ease;
+    color: #ffffff;
+  }
+
+  .mobileNavLink a:hover {
+    transition: 0.5s all ease;
+    color: #ffffff;
+  }
+
+  .mobileNavLink h1:hover {
+    transition: 0.5s all ease;
+    color: #ffffff;
+  }
+  /* 
+  .mobileNavLink span {
+    width: 32px;
+    text-align: center;
+    padding-right: 1rem;
+  } */
+
+  .mobCurrency {
+    padding: 0 1.3rem 0 0.2rem;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .mobileNavLink a {
+    color: #1d1f22;
+    text-decoration: none;
+  }
+
+  .mobileActions {
+    width: fit-content;
+    /* height: 40px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 101px 0 0;
+    position: relative;
+    transition: 0.5s all ease;
+  }
+
+  .mobileSwitcher {
+    z-index: 10;
+    /* padding: 20px 40px 20px 20px; */
+    position: absolute;
+    /* width: 114px;
+    height: 169px; */
+    /* right: 80px;
+    top: 60px; */
+    background: #ffffff;
+    filter: drop-shadow(0px 4px 35px rgba(168, 172, 176, 0.19));
+    border-bottom: 5px solid transparent;
+    transition: 0.5s all ease;
+  }
+
+  .mobileNavSwitcher {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .mobileNavSwitcher li {
+    width: 12rem;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .mobileNavSwitcher li:hover {
+    background-color: rgb(38, 116, 28);
+    transition: 0.5s all ease;
+    color: #ffffff;
+  }
+
+  .mobileNavSwitcher h1:hover,
+  .mobileNavSwitcher span:hover {
+    transition: 0.5s all ease;
+    color: #ffffff;
+  }
+
+  .mobileNavSwitcher span {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 120%;
+    color: #1d1f22;
+    margin: 0;
+    padding: 0 1.3rem 0 0.2rem;
+  }
+
+  .mobileNavSwitcher h1 {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 120%;
+    color: #1d1f22;
+    margin: 0;
+  }
+
+  .displayNone {
+    display: none;
+    transition: 0.5s all ease;
   }
 }
