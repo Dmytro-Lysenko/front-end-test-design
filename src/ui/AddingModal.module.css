@@ -1,14 +1,13 @@
 .modal {
-  max-width: 30rem;
+  max-width: 35rem;
   padding: 0.2rem;
-  background-color: darkcyan;
+  background-color: rgb(162, 212, 207);
   position: absolute;
   top: 0px;
   left: 50%;
   transform: translateX(-50%);
   z-index: -1;
-  transition: 1400ms;
-  /* animation: fadeOut 1000ms ease-out; */
+  transition: ease-in-out 900ms;
   border-radius: 6px;
   margin: 0 auto;
 }

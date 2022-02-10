@@ -63,11 +63,24 @@ const CartItem = (props) => {
       return (prev -= 1);
     });
   };
+
+  const closeDeleteModalHandler = () => {
+    setDeleteModal(false);
+  };
+
+  const deleteProductHandler = () => {
+    console.log("click");
+    ctx.deleteFromCart(id);
+  };
+
   return (
     <>
       <div className={classes["cart-product"]}>
         {deleteModal ? (
-          <DeleteProductFromCartModal>
+          <DeleteProductFromCartModal
+            onDelete={deleteProductHandler}
+            onClose={closeDeleteModalHandler}
+          >
             Are you sure you want to delete product?
           </DeleteProductFromCartModal>
         ) : (

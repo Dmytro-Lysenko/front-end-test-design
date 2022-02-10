@@ -11,10 +11,12 @@ const DeleteProductFromCartModal = (props) => {
   };
   return (
     <div className={classes.modal}>
-      <h1>{props.children}</h1>
-      <div className={classes.actions}>
-        <button onClick={deleteProductHandler}>DELETE</button>
-        <button onClick={toggleBackHandler}>BACK</button>
+      <div className={classes.content} >
+        <h1>{props.children}</h1>
+        <div className={classes.actions}>
+          <button onClick={deleteProductHandler}>DELETE</button>
+          <button onClick={toggleBackHandler}>BACK</button>
+        </div>
       </div>
     </div>
   );

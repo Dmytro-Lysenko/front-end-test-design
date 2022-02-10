@@ -8,6 +8,10 @@
   background: aliceblue;
 }
 
+.mobileNav {
+  display: none;
+}
+
 .header nav {
   display: flex;
   align-items: center;
@@ -186,6 +190,7 @@
   .mobileNav {
     background: aliceblue;
     max-width: 70%;
+    height: 100%;
     width: 100%;
     background-color: rgb(162, 212, 207);
     margin: 0;
@@ -194,6 +199,8 @@
     top: 0;
     left: -100%;
     transition: 1200ms ease-in-out;
+    opacity: 0.9;
+    display: unset;
   }
 
   .mobileNav__active {

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../store/context";
 
-import CartOverlayListItems from "../components/Cart/CartOverlayListItems";
+import CartOverlayList from "../components/Cart/CartOverlayList";
 import classes from "./CartOverlayModal.module.css";
 
 const CartOverlayModal = (props) => {
@@ -25,7 +25,7 @@ const CartOverlayModal = (props) => {
         ) : (
           " "
         )}
-        <CartOverlayListItems onClose={props.onClose} />
+        <CartOverlayList onClose={props.onClose} />
       </div>
     </>
   );

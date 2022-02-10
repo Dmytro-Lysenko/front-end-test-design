@@ -57,7 +57,7 @@ const DD = [
   },
 ];
 
-const CartOverlayListItems = (props) => {
+const CartOverlayList = (props) => {
   const [activeImage, setActiveImage] = useState();
   const navigate = useNavigate();
   const ctx = useContext(Context);
@@ -92,7 +92,7 @@ const CartOverlayListItems = (props) => {
           chosenSizes={product.chosenSizes}
         />
       ))}
-      {itemsInCart ? (
+      {itemsInCart > 2 ? (
         <div onClick={toogleToCartHandler} className={classes.others}>
           <span />
           <span />
@@ -121,4 +121,4 @@ const CartOverlayListItems = (props) => {
   );
 };
 
-export default CartOverlayListItems;
+export default CartOverlayList;

@@ -8,15 +8,12 @@ import EmptyCart from "../images/Empty_Cart.png";
 import VectorUp from "../images/Vector-Up.png";
 import { FaBars } from "react-icons/fa";
 import { ImMan } from "react-icons/im";
-import { IoIosCloseCircleOutline } from "react-icons/io";
+
 import { ImWoman } from "react-icons/im";
 import { FaChild } from "react-icons/fa";
-import { MdKeyboardArrowUp } from "react-icons/md";
-import { MdKeyboardArrowDown } from "react-icons/md";
-import { FaShoppingCart } from "react-icons/fa";
 
-import DUMMY_DATA from "../data";
 import CartOverlayModal from "./CartOverlayModal";
+import MobileNav from "./MobileNav";
 const links = {
   links: [
     { name: "WOMAN", id: "w1", style: classes.link, isActive: false },
@@ -26,38 +23,6 @@ const links = {
   activeLink: null,
 };
 
-const currencies = [
-  { id: "c1", type: "$", title: "USD" },
-  { id: "c2", type: "€", title: "EUR" },
-  { id: "c3", type: "¥", title: "JPY" },
-];
-
-const mobileNavLinks = {
-  links: [
-    {
-      name: "WOMAN",
-      id: "w1",
-      style: classes.mobileNavLink,
-      icon: <ImWoman />,
-      isActive: false,
-    },
-    {
-      name: "MAN",
-      id: "w2",
-      style: classes.mobileNavLink,
-      icon: <ImMan />,
-      isActive: false,
-    },
-    {
-      name: "KIDS",
-      id: "w3",
-      style: classes.mobileNavLink,
-      icon: <FaChild />,
-      isActive: false,
-    },
-  ],
-  activeLink: null,
-};
 
 const Header = (props) => {
   const navigate = useNavigate();
@@ -73,34 +38,10 @@ const Header = (props) => {
   const [isSwitcherActive, setIsSwitcherActive] = useState(false);
   const [isMobiLeNavActive, setIsMobiLeNavActive] = useState(false);
 
-  const activeStyle = `${isActive ? classes.active : ""}`;
   const itemsInCart = ctx.productsInCart.length;
-
-  const switcherStyle = ` ${
-    isSwitcherActive ? classes.mobileNavSwitcher : classes.displayNone
-  }`;
-
-  const mobileNavStyles = `${classes.mobileNav} ${
-    isMobiLeNavActive ? classes["mobileNav__active"] : classes.mobileNav
-  }`;
 
   const showHandler = () => {
     setIsShown(!isShown);
-  };
-
-  const toogleMobileNav = () => {
-    setIsMobiLeNavActive(!isMobiLeNavActive);
-  };
-
-  const mobileSwitcher = () => {
-    setIsSwitcherActive(!isSwitcherActive);
-    console.log("clicked");
-    console.log(isSwitcherActive);
-  };
-
-  const changeCurrencyHandler = (currency) => {
-    ctx.changeCurrency(currency);
-    setIsSwitcherActive(!isSwitcherActive);
   };
 
   const navigateHandler = () => {
@@ -137,9 +78,15 @@ const Header = (props) => {
     setIsOverlayActive(false);
   };
 
+  const toogleMobileNavHandler = () => {
+    console.log("clicked");
+    setIsMobiLeNavActive(!isMobiLeNavActive);
+  };
+
   return (
     <header className={classes.header}>
-      <ul className={mobileNavStyles}>
+      <MobileNav isMobileNav={isMobiLeNavActive} />
+      {/* <ul className={mobileNavStyles}>
         <li onClick={toogleMobileNav} className={classes.mobileNavLink}>
           <IoIosCloseCircleOutline />
         </li>
@@ -177,7 +124,7 @@ const Header = (props) => {
         <li className={classes.mobileNavLink}>
           <FaShoppingCart /> <Link to="/cart"> CART</Link>
         </li>
-      </ul>
+      </ul> */}
       {/* ////////////////////////////// */}
       <nav>
         <ul className={classes.navLinks}>
@@ -195,7 +142,7 @@ const Header = (props) => {
             </li>
           ))}
         </ul>
-        <FaBars onClick={toogleMobileNav} className={classes.bars} />
+        <FaBars onClick={toogleMobileNavHandler} className={classes.bars} />
         <img
           className={classes["brand-icon"]}
           src={BrandIcon}
