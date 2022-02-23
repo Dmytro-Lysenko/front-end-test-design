@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/front-end-test-design/static/css/main.293ec7a2.css",
+    "main.js": "/front-end-test-design/static/js/main.bd1e9594.js",
+    "static/media/Woman-sweater.png": "/front-end-test-design/static/media/Woman-sweater.f9cfb3d42a00d6b3797e.png",
+    "static/media/Woman-sweater2.png": "/front-end-test-design/static/media/Woman-sweater2.d3ad1d49cd01fadb030d.png",
+    "static/media/Belt.png": "/front-end-test-design/static/media/Belt.71c36c38586d950f29db.png",
+    "static/media/Pigama.png": "/front-end-test-design/static/media/Pigama.eb69fd2354bbf0d55f20.png",
+    "static/media/sweater7.jpg": "/front-end-test-design/static/media/sweater7.7f314428c47ef4de4668.jpg",
+    "index.html": "/front-end-test-design/index.html",
+    "main.293ec7a2.css.map": "/front-end-test-design/static/css/main.293ec7a2.css.map",
+    "main.bd1e9594.js.map": "/front-end-test-design/static/js/main.bd1e9594.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.293ec7a2.css",
+    "static/js/main.bd1e9594.js"
+  ]
+}
