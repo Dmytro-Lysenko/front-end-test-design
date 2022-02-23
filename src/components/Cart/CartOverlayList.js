@@ -65,10 +65,10 @@ const CartOverlayList = (props) => {
   const prices = ctx.productsInCart.map((product) => product.price);
   const totalPrice = prices.reduce((a, b) => a + b, 0);
   const itemsInCart = ctx.productsInCart.length;
-  console.log(itemsInCart);
+
 
   const toogleToCartHandler = () => {
-    console.log("click in item");
+ 
     navigate("/cart", { replace: false });
     props.onClose();
   };

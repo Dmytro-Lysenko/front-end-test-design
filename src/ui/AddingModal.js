@@ -3,11 +3,9 @@ import { useState } from "react";
 import classes from "./AddingModal.module.css";
 
 const AddingModal = (props) => {
-  console.log(props.isActive);
-
   const [isActive, setIsActive] = useState();
   const styles = `${classes.modal} ${isActive ? classes.active : " "}`;
-  console.log(isActive);
+
   useEffect(() => {
     setIsActive(props.isActive);
     // if (isActive) {

@@ -37,7 +37,7 @@ const CardOverlayItem = (props) => {
   };
 
   const deleteProductHandler = () => {
-    console.log("click");
+  
     ctx.deleteFromCart(id);
   };
 

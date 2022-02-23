@@ -7,16 +7,20 @@ import classes from "./ProductItem.module.css";
 import NoImage from "../../images/No-Picture.png";
 
 const ProductItem = ({ products }) => {
+  console.log(products);
+
   const ctx = useContext(Context);
 
   const [isActive, setIsActive] = useState(null);
   const [chosenSize, setChosenSize] = useState(null);
   const [error, setError] = useState(false);
   const [addingModal, setAddingModal] = useState(false);
-
+  console.log(ctx.productsInCart);
+  console.log(ctx.allProducts);
   const params = useParams();
 
   const productItemData = products.find((item) => item.id === params.itemId);
+  console.log(productItemData);
   const { brand, type, price, id } = productItemData;
   // console.log(ctx.productsInCart);
   // const itemIsInCart = ctx.productIsInCart(id);
@@ -29,30 +33,43 @@ const ProductItem = ({ products }) => {
   //   (product) => product.id === id
   // );
 
-  // const DMDT = [
-  //   {
-  //     item1: "r",
-  //     chosenSizes: [
-  //       { pcs: 1, size: "XS" },
-  //       { pcs: 1, size: "M" },
-  //       { pcs: 1, size: "L" },
-  //     ],
-  //   },
-  //   {
-  //     item1: "rrr",
-  //     chosenSizes: [
-  //       { pcs: 1, size: "XS" },
-  //       { pcs: 1, size: "M" },
-  //       { pcs: 1, size: "L" },
-  //     ],
-  //   },
-  // ];
+  const oneIten = {
+    item1: "r",
+    id: "n1",
+    chosenSizes: [{ pcs: 1, size: "M" }],
+  };
 
-  // const o = DMDT.map((item) =>
-  //   item.chosenSizes.some((size) => size.size === "Ms")
-  // );
+  const DMDT = [
+    {
+      item1: "r",
+      id: "n1",
+      chosenSizes: [
+        { pcs: 1, size: "XS" },
+        { pcs: 1, size: "M" },
+        { pcs: 1, size: "L" },
+      ],
+    },
+    {
+      item1: "rrr",
+      id: "n2",
+      chosenSizes: [
+        { pcs: 1, size: "XS" },
+        { pcs: 1, size: "M" },
+        { pcs: 1, size: "L" },
+      ],
+    },
+    {
+      item1: "rrwr",
+      id: "n4",
+      chosenSizes: [
+        { pcs: 1, size: "XS" },
+        { pcs: 1, size: "L" },
+      ],
+    },
+  ];
 
-  // console.log(DMDT);
+  // console.log(upd);
+  // console.log(DMDT, oneIten);
   // console.log(o, chosenSize);
 
   const activeSizeHandler = (id, size) => {
@@ -82,7 +99,56 @@ const ProductItem = ({ products }) => {
     setTimeout(() => {
       setAddingModal(null);
     }, 1500);
-    ctx.addToCart(productItemData, chosenSize);
+
+    const updArray = [...ctx.productsInCart];
+    const fltr = updArray.filter(
+      (product) => product.id === productItemData.id
+    );
+
+    // arr1.map(obj => arr2.find(o => o.id === obj.id) || obj);
+    // return fltr[0].chosenSizes.push({ pcs: 1, size: chosenSize });
+    console.log(fltr[0]);
+    if (fltr[0]) {
+      fltr[0].chosenSizes.map((size) => {
+        if (size.size === chosenSize) {
+          const uj = {
+            pcs: size.pcs + 1,
+            size: size.size,
+          };
+          return (fltr[0].chosenSizes = [uj]);
+        }
+        const uj = {
+          pcs: 1,
+          size: chosenSize,
+        };
+      });
+
+      return fltr[0];
+    }
+    console.log(fltr[0]);
+    // const u = fltr.map((product) => {
+    //   if (
+    //     product.chosenSizes.map((size) => {
+    //       if (size.size === chosenSize) {
+    //         return console.log("includes");
+    //       } else {
+    //         const upf = [];
+    //         upf.push(size);
+    //         upf.push({ pcs: 1, size: chosenSize });
+    //         return upf;
+    //       }
+    //     })
+    //   )
+    //     return console.log(product);
+    // });
+    // console.log(u);
+
+    const updProd = {
+      chosenSizes: [{ pcs: 1, size: chosenSize }],
+      ...productItemData,
+    };
+
+    ctx.addToCart(updProd, chosenSize);
   };
 
   const closeErrorModalHandler = () => {

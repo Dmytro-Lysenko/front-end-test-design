@@ -49,7 +49,7 @@ const mobileNavLinks = {
 
 const MobileNav = (props) => {
   const { isMobileNav } = props;
-  console.log(isMobileNav);
+
   const ctx = useContext(Context);
   const [activeLink, setActiveLink] = useState(null);
   const [isSwitcherActive, setIsSwitcherActive] = useState(false);
@@ -73,8 +73,8 @@ const MobileNav = (props) => {
 
   const mobileSwitcher = () => {
     setIsSwitcherActive(!isSwitcherActive);
-    console.log("clicked");
-    console.log(isSwitcherActive);
+
+ 
   };
 
   const changeCurrencyHandler = (currency) => {

@@ -45,13 +45,10 @@ const ContextProvider = (props) => {
   };
 
   const addToCartHandler = (product, chosenSize) => {
-    const updProd = {
-      chosenSizes: [{ pcs: 1, size: chosenSize }],
-      ...product,
-    };
+   
 
     setItemsInCart((prevProduct) => {
-      return (prevProduct = itemsInCart.concat(updProd));
+      return (prevProduct = itemsInCart.concat(product));
     });
   };
 

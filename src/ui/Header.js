@@ -57,7 +57,7 @@ const Header = (props) => {
     setAllProducts((prev) => {
       return (prev = filtredProducts);
     });
-    console.log(filtredProducts);
+
     ctx.filterByCategory(category);
     // const objIndex = updLinks.findIndex((link) => link.id === id);
     // updLinks[objIndex].style = classes.active;
@@ -69,17 +69,17 @@ const Header = (props) => {
   };
 
   const overlayHandler = () => {
-    console.log("click");
+  
     setIsOverlayActive(true);
   };
 
   const closeModalHandler = () => {
-    console.log("click");
+
     setIsOverlayActive(false);
   };
 
   const toogleMobileNavHandler = () => {
-    console.log("clicked");
+
     setIsMobiLeNavActive(!isMobiLeNavActive);
   };
 

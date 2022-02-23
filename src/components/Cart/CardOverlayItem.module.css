@@ -12,7 +12,7 @@
   margin: 23px auto 40px auto;
   max-width: 293px;
   width: 100%;
-  position: relative;
+  /* position: relative; */
   z-index: 60;
 }
 
